@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-adminlte3-demo-app';
+  dateToday = Date.now();
+  rainMeter = '5';
 }
