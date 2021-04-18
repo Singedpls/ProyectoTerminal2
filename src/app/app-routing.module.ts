@@ -1,3 +1,4 @@
+import { VehicleFormComponent } from './components/forms/vehicle-form/vehicle-form.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ const routes: Routes = [
 
   // FORMS ROUTES
   {path: 'client-form',component:ClientFormComponent},
+  {path: 'vehicle-data-form',component:VehicleFormComponent},
 ];
 
 @NgModule({
