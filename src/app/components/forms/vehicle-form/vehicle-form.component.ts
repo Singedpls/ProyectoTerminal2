@@ -11,5 +11,7 @@ export class VehicleFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  vehicleSubmit(value){
+    console.log(value);
+  }
 }

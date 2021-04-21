@@ -5,7 +5,7 @@
                         <!-- <h3>Welcome</h3> -->
                         <h3>Client Form</h3>
                         <p>Kindly fill in your information</p>
-                        <input type="submit" name="" value="Login"/><br/>
+                        <!-- <input type="submit" name="" value="Login"/><br/> -->
                     </div>
                     <div class="col-md-9 register-right">
                         <!-- <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -21,62 +21,99 @@
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 
                                 <h3 class="register-heading">Personal Information</h3>
-                                <form >
+                                <form #f="ngForm" (ngSubmit)="clientSubmit(f.value)" >
                                         
-                                
-                                <div class="row register-form">
-                                    <span id="emailHelp" class="form-text text-muted">*Please only use capital letters and no punctuation marks. </span>
-                                    
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Second Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Mother's Last Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Age" value="" />
-                                        </div>
+                                    <div class="row register-form">
+                                        <span id="emailHelp" class="form-text text-muted">*Please only use capital letters and no punctuation marks. </span>
                                         
-                                        <!-- <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="male" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="female">
-                                                    <span>Female </span> 
-                                                </label>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="firstName">First Name </label>
+                                                <input type="text" #first_name (ngModel)="first_name"   name="first_name" class="form-control" placeholder="First Name *" value="" />
                                             </div>
-                                        </div> -->
-                                    </div>
-                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="secondName">Second Name</label>
+                                                <input type="text" class="form-control" #second_name (ngModel)="second_name" name="second_name" placeholder="Second Name *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="lastName">Last Name</label>
+                                                <input type="text" class="form-control" #last_name (ngModel)="last_name" name="last_name" placeholder="Last Name *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="mothersLastName">Mother's Last Name</label>
+                                                <input type="text" class="form-control" #mothers_last_name (ngModel)="mothers_last_name" name="mothers_last_name" placeholder="Mother's Last Name *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="nationality">Nationality</label>
+                                                <input type="text" class="form-control" #nationality (ngModel)="nationality" name="nationality" placeholder="Nationality *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="age">Age</label>
+                                                <input type="number" name="age" min="0" maxlength="10" #age (ngModel)="age" name="age" class="form-control" placeholder="Age" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="email"  class="form-control" #email (ngModel)="email" name="email" placeholder="Your Email *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="phone">Phone</label>
+                                                <input type="integer" minlength="10" maxlength="10" #phone (ngModel)="phone" name="phone" class="form-control" placeholder="Phone (10 Digits)*" value="" />
+                                            </div>
                                         
-                                        <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Direction*" value="" />
+
+                                            
+                                            
+                                            <!-- <div class="form-group">
+                                                <div class="maxl">
+                                                    <label class="radio inline"> 
+                                                        <input type="radio" name="gender" value="male" checked>
+                                                        <span> Male </span> 
+                                                    </label>
+                                                    <label class="radio inline"> 
+                                                        <input type="radio" name="gender" value="female">
+                                                        <span>Female </span> 
+                                                    </label>
+                                                </div>
+                                            </div> -->
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="rfc" class="form-control" placeholder="RFC*" value="" />
+                                        <div class="col-md-6">
+                                            
+                                            <div class="form-group">
+                                                <label for="street">Street</label>
+                                                <input type="text" #street (ngModel)="street"  name="street" class="form-control" placeholder="street*" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="internalNumber">Internal Number</label>
+                                                <input type="number" #internal_number (ngModel)="internal_number" name="internal_number"  minlength="10" maxlength="10"class="form-control" placeholder="Internal Number*" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="externalNumber">External Number</label>
+                                                <input type="number" #external_number (ngModel)="external_number" name="external_number" minlength="10" maxlength="10"  class="form-control" placeholder="External Number*" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cologne">Cologne</label>
+                                                <input type="text" #cologne (ngModel)="cologne" name="cologne" class="form-control" placeholder="Cologne*" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="delegationMunicipality">Delegation Municipality</label>
+                                                <input type="text" #delegation_municipality (ngModel)="delegation_municipality" name="delegation_municipality" class="form-control" placeholder="Delegation Municipality*" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="town">Town</label>
+                                                <input type="text" #town (ngModel)="town" name="town" class="form-control" placeholder="Town*" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="rfc">RFC</label>
+                                                <input type="text" #rfc (ngModel)="rfc"  name="rfc" minlength="10" maxlength="10" class="form-control" placeholder="RFC*" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Technician Incharge">Technician Incharge</label>
+                                                <input type="text" readonly minlength="10" maxlength="10" name="technician_incharge" class="form-control"  value="Manasseh Bundi" />
+                                            </div>
+                                            <input type="submit" class="btnRegister"  value="Submit"/>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Phone (10 Digits)*" value="" />
-                                        </div>
-                                      
-                                      
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                        </div>
-                                        <input type="submit" class="btnRegister"  value="Submit"/>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h3  class="register-heading">Apply as a Hirer</h3>
