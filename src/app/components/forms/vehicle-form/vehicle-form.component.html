@@ -1,11 +1,13 @@
 <div class="container register">
     <div class="row">
         <div class="col-md-3 register-left d-none d-md-block">
+            <div class="sss">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
             <!-- <h3>Welcome</h3> -->
             <h3>Technician Form</h3>
             <p>Kindly fill in all the Vehicle Data </p>
             <!-- <input type="submit" name="" value="Login"/><br/> -->
+            </div>
         </div>
         <div class="col-md-9 register-right">
            
@@ -23,8 +25,17 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="client">Client</label>
-                                    <input type="text"  value="brakes"  class="form-control">
-                                     
+                                    <ng-multiselect-dropdown
+                                    [placeholder]="'custom placeholder'"
+                                    [settings]="dropdownSettings"
+                                    [data]="allclients"
+                                    #user
+                                    (ngModel)="client"
+                                    name="client"
+                                    (onSelect)="onItemSelect($event)"
+                                    (onSelectAll)="onSelectAll($event)"
+                                  >
+                                  </ng-multiselect-dropdown>
                                 </div>
                                 <div class="form-group">
                                     <label for="vehicleplate">Vehicle Plate</label>
@@ -44,11 +55,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="vehiclecolor">Vehicle Color </label>
-                                    <input type="text" #vehicle_color (ngModel)="vehicle_color" name="vehicle_color" class="form-control" placeholder="Vehicle Color *" value="" />
+                                    <input type="color" #vehicle_color (ngModel)="vehicle_color" name="vehicle_color" class="form-control" placeholder="Vehicle Color *" value="" />
                                 </div>
                                 <div class="form-group">
                                     <label for="vehicle_observation">Vehicle Observation </label>
-                                    <input type="text" #vehicle_observation (ngModel)="vehicle_observation" name="vehicle_observation" class="form-control" placeholder="Vehicle Observation *" value="" />
+                                    <input type="number" #vehicle_observation (ngModel)="vehicle_observation" name="vehicle_observation" class="form-control" placeholder="Vehicle Observation *" value="" />
                                 </div>
                                 <div class="form-group">
                                     <label for="specificationsservice">Service Specifications</label>
@@ -71,7 +82,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="vehicleentrydate">Vehicle Entry Date</label>
-                                    <input type="date" #vehicle_entry_date (ngModel)="vehicle_entry_date" name="txtEmpPhone" class="form-control" placeholder="Vehicle Entry Date*" value="" />
+                                    <input type="datetime-local" #vehicle_entry_date (ngModel)="vehicle_entry_date" name="vehicle_entry_date" [min]="mindate" class="form-control" placeholder="Vehicle Entry Date*" value="" />
                                 </div>
                                 <div class="form-group">
                                     <label for="liters_of_gasoline">Liters of Gasoline</label>
@@ -80,7 +91,7 @@
                             
                                 <div class="form-group">
                                     <label for="solicitedservice">Solicited service</label>
-                                    <div class="maxl">
+                                    <!-- <div class="maxl">
                                         
                                         <label class="radio inline"> 
                                             <input type="radio" #solicitedservice (ngModel)="solicitedservice" name="solicitedservice" value="Chassis" checked>
@@ -103,19 +114,27 @@
                                             <span>Oil Changes</span> 
                                         </label><br>
                                         <label class="radio inline"> 
-                                            <input type="radio" #solicitedservice (ngModel)="solicitedservice" name="solicitedservice" value="brakes">
+                                            <input type="radio"  value="brakes">
                                             <span>Brakes</span> 
                                         </label>
                                         
                                         
                                         
-                                    </div>
+                                    </div> -->
+                                    <select #solicited_service (ngModel)="solicited_service" name="solicited_service" class="form-select" aria-label="Default select example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="chassis">Chassis</option>
+                                        <option value="generalservice">General service</option>
+                                        <option value="tuning">Tuning</option>
+                                        <option value="carbalancing">Car Balancing</option>
+                                        <option value="oilchanges">oilchanges</option>
+                                      </select>
                                 </div>
                                
                             
                                 <div class="form-group">
                                     <label for="proposedvehicledeparturedate">Proposed Vehicle Departure Date</label>
-                                    <input type="date" #proposed_departure_date (ngModel)="proposed_departure_date" name="proposed_departure_date" class="form-control" placeholder="Proposed Vehicle Departure Date " value="" />
+                                    <input type="datetime-local" #proposed_departure_date (ngModel)="proposed_departure_date" [min]="mindate" name="proposed_departure_date" class="form-control" placeholder="Proposed Vehicle Departure Date " value="" />
                                 </div>
 
                                

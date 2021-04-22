@@ -10,6 +10,7 @@ import { ClientFormComponent } from './components/forms/client-form/client-form.
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { VehicleFormComponent } from './components/forms/vehicle-form/vehicle-form.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { VehicleFormComponent } from './components/forms/vehicle-form/vehicle-fo
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule ,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
