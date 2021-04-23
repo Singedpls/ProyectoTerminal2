@@ -11,13 +11,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { VehicleFormComponent } from './components/forms/vehicle-form/vehicle-form.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
+
+import { HighchartsChartModule } from 'highcharts-angular';
+import { ChartModule } from 'angular-highcharts';
+import { TechnicianDataComponent } from './components/charts/technician-data/technician-data.component';
+import { ClientChartDataComponent } from './components/charts/client-chart-data/client-chart-data.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     ClientFormComponent,
-    VehicleFormComponent
+    VehicleFormComponent,
+    PieChartComponent,
+    TechnicianDataComponent,
+    ClientChartDataComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +35,9 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule ,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    HighchartsChartModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

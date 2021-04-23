@@ -1,3 +1,6 @@
+import { ClientChartDataComponent } from './components/charts/client-chart-data/client-chart-data.component';
+import { TechnicianDataComponent } from './components/charts/technician-data/technician-data.component';
+import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 import { VehicleFormComponent } from './components/forms/vehicle-form/vehicle-form.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -13,6 +16,11 @@ const routes: Routes = [
   // FORMS ROUTES
   {path: 'client-form',component:ClientFormComponent},
   {path: 'vehicle-data-form',component:VehicleFormComponent},
+
+  // CHARTS
+  {path: 'chart',component:PieChartComponent},
+  {path: 'technician-chart',component:TechnicianDataComponent},
+  {path: 'client-chart',component:ClientChartDataComponent},
 ];
 
 @NgModule({
