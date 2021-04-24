@@ -123,11 +123,10 @@
                                     </div> -->
                                     <select #solicited_service (ngModel)="solicited_service" name="solicited_service" class="form-select" aria-label="Default select example">
                                         <option selected>Open this select menu</option>
-                                        <option value="chassis">Chassis</option>
-                                        <option value="generalservice">General service</option>
-                                        <option value="tuning">Tuning</option>
+                                        <option *ngFor="let service of allsolicitedservices" value="{{service.id}}">{{service.name}}</option>
+                                        <!-- <option value="service.id">Tuning</option>
                                         <option value="carbalancing">Car Balancing</option>
-                                        <option value="oilchanges">oilchanges</option>
+                                        <option value="oilchanges">oilchanges</option> -->
                                       </select>
                                 </div>
                                

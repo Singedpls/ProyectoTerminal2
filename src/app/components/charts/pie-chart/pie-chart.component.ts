@@ -3,6 +3,7 @@ import * as Highcharts from 'highcharts';
 // import * as Chart from 'chart.js';
 
 import { Chart } from 'angular-highcharts';
+import { SolicitedServiceService } from 'src/app/services/solicitedservice/solicited-service.service';
 
 @Component({
   selector: 'app-pie-chart',

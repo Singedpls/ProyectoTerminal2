@@ -1,3 +1,4 @@
+import { SolicitedServiceService } from './../../../services/solicitedservice/solicited-service.service';
 import { VehicleService } from './../../../services/vehicle/vehicle.service';
 import { ClientService } from 'src/app/services/client/client.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,12 +18,21 @@ export class VehicleFormComponent implements OnInit {
  
   dropdownSettings = {};
   allclients:any[] =[]
+  allsolicitedservices:any[]=[]
   constructor(
     private clientservice:ClientService,
-    private vehicleservice:VehicleService
+    private vehicleservice:VehicleService,
+    private solicitedservices:SolicitedServiceService
   ) { }
 
   ngOnInit(){
+    this.solicitedservices.getfilteredSolicitedServices().subscribe((x:any)=>{
+       console.log(x)
+       
+    });
+    this.solicitedservices.getSolicitedServices().subscribe((x:any)=>{
+      this.allsolicitedservices = x
+    });
     this.dropdownList = [
     { item_id: 1, item_text: 'Alex Murphy Murphy' },
     { item_id: 2, item_text: 'Murphy' },
