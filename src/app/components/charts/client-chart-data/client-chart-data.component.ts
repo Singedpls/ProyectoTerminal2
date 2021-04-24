@@ -1,3 +1,4 @@
+import { ClientChartService } from './../../../services/charts/client-chart/client-chart.service';
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 @Component({
@@ -5,7 +6,8 @@ import * as Highcharts from 'highcharts';
   templateUrl: './client-chart-data.component.html',
   styleUrls: ['./client-chart-data.component.sass']
 })
-export class ClientChartDataComponent  {
+export class ClientChartDataComponent implements OnInit   {
+  
   highcharts = Highcharts;
 
   chartOptions: Highcharts.Options = {
@@ -53,6 +55,7 @@ export class ClientChartDataComponent  {
    
     series: [{
       name: 'Users',
+      type:'column',
       data: [
         ['Monday', 0],
         ['Tuesday', 6],
@@ -77,5 +80,14 @@ export class ClientChartDataComponent  {
       }
     }]
   }
+  constructor(
+    private clientchartservice:ClientChartService
+    ){}
+
+    ngOnInit(){
+      this.clientchartservice.getfiltereddata().subscribe(data => {
+        console.log(data)
+      })
+    }
 
 }
