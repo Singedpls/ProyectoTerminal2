@@ -14,9 +14,19 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 
 import { HighchartsChartModule } from 'highcharts-angular';
-import { ChartModule } from 'angular-highcharts';
+// import { ChartModule } from 'angular-highcharts';
 import { TechnicianDataComponent } from './components/charts/technician-data/technician-data.component';
 import { ClientChartDataComponent } from './components/charts/client-chart-data/client-chart-data.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { DashboardComponent } from './components/home/dashboard/dashboard.component';
+import { SharedComponent } from './components/shared/shared.component';
+import { TopNavbarComponent } from './components/shared/top-navbar/top-navbar.component';
+import { MainsideNavbarComponent } from './components/shared/mainside-navbar/mainside-navbar.component';
+import { FootbarComponent } from './components/shared/footbar/footbar.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +36,14 @@ import { ClientChartDataComponent } from './components/charts/client-chart-data/
     VehicleFormComponent,
     PieChartComponent,
     TechnicianDataComponent,
-    ClientChartDataComponent
+    ClientChartDataComponent,
+    RegisterComponent,
+    ChartsComponent,
+    DashboardComponent,
+    SharedComponent,
+    TopNavbarComponent,
+    MainsideNavbarComponent,
+    FootbarComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +54,15 @@ import { ClientChartDataComponent } from './components/charts/client-chart-data/
     ReactiveFormsModule ,
     NgMultiSelectDropDownModule.forRoot(),
     HighchartsChartModule,
-    ChartModule
+    // ChartModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      countDuplicates:true,
+      progressBar:true,
+      extendedTimeOut:1000,
+      closeButton:true,
+    }), // ToastrModule added
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

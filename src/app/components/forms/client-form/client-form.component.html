@@ -1,167 +1,220 @@
-<div class="container register">
-                <div class="row">
-                    <div class="col-md-3 register-left d-none d-md-block">
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+<div class="card2 card border-0 px-4 py-5">
+<!-- <app-top-navbar></app-top-navbar>
+<app-mainside-navbar></app-mainside-navbar> -->
+ <!-- <div class="content-wrapper"> -->
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left d-none d-md-block">
+                
+                <div class="sss">
+                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+                    <!-- <h3>Welcome</h3> -->
+                    <h3>Client Form</h3>
+                    <p>Kindly fill in your information</p>
+                    <!-- <input type="submit" name="" value="Login"/><br/> -->
+                </div>
+               
+            </div>
+            <div class="col-md-9 register-right">
+                <!-- <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hirer</a>
+                    </li>
+                </ul> -->
+                <h3 class="d-block d-none d-sm-block d-md-none" style="text-align:center;">Client Form</h3>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         
-                        <div class="sss">
-                            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                            <!-- <h3>Welcome</h3> -->
-                            <h3>Client Form</h3>
-                            <p>Kindly fill in your information</p>
-                            <!-- <input type="submit" name="" value="Login"/><br/> -->
-                        </div>
-                       
-                    </div>
-                    <div class="col-md-9 register-right">
-                        <!-- <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Employee</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hirer</a>
-                            </li>
-                        </ul> -->
-                        <h3 class="d-block d-none d-sm-block d-md-none" style="text-align:center;">Client Form</h3>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Personal Information</h3>
+                        <form #f="ngForm" (ngSubmit)="clientSubmit(f)" >
                                 
-                                <h3 class="register-heading">Personal Information</h3>
-                                <form #f="ngForm" (ngSubmit)="clientSubmit(f.value)" >
-                                        
-                                    <div class="row register-form">
-                                        <span id="emailHelp" class="form-text text-muted">*Please only use capital letters and no punctuation marks. </span>
-                                        
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="firstName">First Name </label>
-                                                <input type="text" #first_name (ngModel)="first_name"   name="first_name" class="form-control" placeholder="First Name *" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="secondName">Second Name</label>
-                                                <input type="text" class="form-control" #second_name (ngModel)="second_name" name="second_name" placeholder="Second Name *" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="lastName">Last Name</label>
-                                                <input type="text" class="form-control" #last_name (ngModel)="last_name" name="last_name" placeholder="Last Name *" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="mothersLastName">Mother's Last Name</label>
-                                                <input type="text" class="form-control" #mothers_last_name (ngModel)="mothers_last_name" name="mothers_last_name" placeholder="Mother's Last Name *" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="nationality">Nationality</label>
-                                                <input type="text" class="form-control" #nationality (ngModel)="nationality" name="nationality" placeholder="Nationality *" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="age">Age</label>
-                                                <input type="number" name="age" min="0" maxlength="10" #age (ngModel)="age" name="age" class="form-control" placeholder="Age" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input type="email"  class="form-control" #email (ngModel)="email" name="email" placeholder="Your Email *" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="phone">Phone</label>
-                                                <input type="integer" minlength="10" maxlength="10" #phone (ngModel)="phone" name="phone" class="form-control" placeholder="Phone (10 Digits)*" value="" />
-                                            </div>
-                                        
-
-                                            
-                                            
-                                            <!-- <div class="form-group">
-                                                <div class="maxl">
-                                                    <label class="radio inline"> 
-                                                        <input type="radio" name="gender" value="male" checked>
-                                                        <span> Male </span> 
-                                                    </label>
-                                                    <label class="radio inline"> 
-                                                        <input type="radio" name="gender" value="female">
-                                                        <span>Female </span> 
-                                                    </label>
-                                                </div>
-                                            </div> -->
+                            <div class="row register-form">
+                                <span id="emailHelp" class="form-text text-muted">*Please only use capital letters and no punctuation marks. </span>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name </label>
+                                        <input type="text" #first_name (ngModel)="first_name"   name="first_name" [ngClass]="{ 'is-invalid': submitted && f.controls.first_name.errors }" class="form-control" placeholder="First Name *" value="" required />
+                                   
+                                        <div *ngIf="submitted && f.controls.first_name.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.first_name.errors.required">First Name is required</div>
                                         </div>
-                                        <div class="col-md-6">
-                                            
-                                            <div class="form-group">
-                                                <label for="street">Street</label>
-                                                <input type="text" #street (ngModel)="street"  name="street" class="form-control" placeholder="street*" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="internalNumber">Internal Number</label>
-                                                <input type="number" #internal_number (ngModel)="internal_number" name="internal_number"  minlength="10" maxlength="10"class="form-control" placeholder="Internal Number*" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="externalNumber">External Number</label>
-                                                <input type="number" #external_number (ngModel)="external_number" name="external_number" minlength="10" maxlength="10"  class="form-control" placeholder="External Number*" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="cologne">Cologne</label>
-                                                <input type="text" #cologne (ngModel)="cologne" name="cologne" class="form-control" placeholder="Cologne*" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="delegationMunicipality">Delegation Municipality</label>
-                                                <input type="text" #delegation_municipality (ngModel)="delegation_municipality" name="delegation_municipality" class="form-control" placeholder="Delegation Municipality*" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="town">Town</label>
-                                                <input type="text" #town (ngModel)="town" name="town" class="form-control" placeholder="Town*" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="rfc">RFC</label>
-                                                <input type="text" #rfc (ngModel)="rfc"  name="rfc" minlength="10" maxlength="10" class="form-control" placeholder="RFC*" value="" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="Technician Incharge">Technician Incharge</label>
-                                                <input type="text" readonly minlength="10" maxlength="10" name="technician_incharge" class="form-control"  value="Manasseh Bundi" />
-                                            </div>
-                                            <input type="submit" class="btnRegister"  value="Submit"/>
+                                     </div>
+                                    <div class="form-group">
+                                        <label for="secondName">Second Name</label>
+                                        <input type="text" class="form-control" #second_name (ngModel)="second_name" name="second_name" [ngClass]="{ 'is-invalid': submitted && f.controls.second_name.errors }" placeholder="Second Name *" value=""required/>
+
+                                        <div *ngIf="submitted && f.controls.second_name.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.second_name.errors.required">Second Name is required</div>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Apply as a Hirer</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" class="form-control" #last_name (ngModel)="last_name" name="last_name"[ngClass]="{ 'is-invalid': submitted && f.controls.last_name.errors }" placeholder="Last Name *" value=""required />
+                                    
+                                        <div *ngIf="submitted && f.controls.last_name.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.last_name.errors.required">Last Name is required</div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
-                                        </div>
-
-
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                    <div class="form-group">
+                                        <label for="mothersLastName">Mother's Last Name</label>
+                                        <input type="text" class="form-control" #mothers_last_name (ngModel)="mothers_last_name" name="mothers_last_name" [ngClass]="{ 'is-invalid': submitted && f.controls.mothers_last_name.errors }" placeholder="Mother's Last Name *" value=""required />
+                                    
+                                        <div *ngIf="submitted && f.controls.mothers_last_name.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.mothers_last_name.errors.required">Mother's Last Name is required</div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nationality">Nationality</label>
+                                        <input type="text" class="form-control" #nationality (ngModel)="nationality" name="nationality" [ngClass]="{ 'is-invalid': submitted && f.controls.nationality.errors }" placeholder="Nationality *" value=""required />
+                                    
+                                        <div *ngIf="submitted && f.controls.nationality.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.nationality.errors.required">Nationality is required</div>
                                         </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="age">Age</label>
+                                        <input type="number" name="age" min="0" maxlength="10" #age (ngModel)="age" name="age" [ngClass]="{ 'is-invalid': submitted && f.controls.age.errors }" class="form-control" placeholder="Age" value="" required/>
+
+                                        <div *ngIf="submitted && f.controls.age.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.age.errors.required">Age is required</div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email"  class="form-control" #email (ngModel)="email" name="email" [ngClass]="{ 'is-invalid': submitted && f.controls.email.errors }" placeholder="Your Email *" value="" required/>
+                                    
+                                        <div *ngIf="submitted && f.controls.email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.email.errors.required">Email is required</div>
                                         </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input type="integer" minlength="10" maxlength="10" #phone (ngModel)="phone" name="phone" [ngClass]="{ 'is-invalid': submitted && f.controls.phone.errors }"class="form-control" placeholder="Phone (10 Digits)*" value=""required />
+                                    
+                                        <div *ngIf="submitted && f.controls.phone.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.phone.errors.required">Phone is required</div>
+                                            <div *ngIf="f.controls.phone.errors.minlength">The Minimum length is 10</div>
+                                            <div *ngIf="f.controls.phone.errors.maxlength">The Maximum length is 10</div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    
+                                    <div class="form-group">
+                                        <label for="street">Street</label>
+                                        <input type="text" #street (ngModel)="street"  name="street"  [ngClass]="{ 'is-invalid': submitted && f.controls.street.errors }"class="form-control" placeholder="street*" value="" required/>
+                                    
+                                        <div *ngIf="submitted && f.controls.street.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.street.errors.required">Street is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="internalNumber">Internal Number</label>
+                                        <input type="number" #internal_number (ngModel)="internal_number" name="internal_number" [ngClass]="{ 'is-invalid': submitted && f.controls.internal_number.errors }"  minlength="10" maxlength="10"class="form-control" placeholder="Internal Number*" value="" required/>
+                                    
+                                        <div *ngIf="submitted && f.controls.internal_number.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.internal_number.errors.required">Internal Number is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="externalNumber">External Number</label>
+                                        <input type="number" #external_number (ngModel)="external_number" name="external_number" [ngClass]="{ 'is-invalid': submitted && f.controls.external_number.errors }"minlength="10" maxlength="10"  class="form-control" placeholder="External Number*" value=""required/>
+                                    
+                                        <div *ngIf="submitted && f.controls.external_number.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.external_number.errors.required">External Number is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cologne">Cologne</label>
+                                        <input type="text" #cologne (ngModel)="cologne" name="cologne" [ngClass]="{ 'is-invalid': submitted && f.controls.cologne.errors }" class="form-control" placeholder="Cologne*" value=""required/>
+                                    
+                                        <div *ngIf="submitted && f.controls.cologne.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.cologne.errors.required">cologne is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="delegationMunicipality">Delegation Municipality</label>
+                                        <input type="text" #delegation_municipality (ngModel)="delegation_municipality" name="delegation_municipality" [ngClass]="{ 'is-invalid': submitted && f.controls.delegation_municipality.errors }" class="form-control" placeholder="Delegation Municipality*" value=""required/>
+                                        <div *ngIf="submitted && f.controls.delegation_municipality.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.delegation_municipality.errors.required">Delegation Municipality is required</div>
+                                        </div>
+                                     </div>
+                                    <div class="form-group">
+                                        <label for="town">Town</label>
+                                        <input type="text" #town (ngModel)="town" name="town"  [ngClass]="{ 'is-invalid': submitted && f.controls.town.errors }" class="form-control" placeholder="Town*" value="" required/>
+                                        <div *ngIf="submitted && f.controls.town.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.town.errors.required">Town is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rfc">RFC</label>
+                                        <input type="text" #rfc (ngModel)="rfc"  name="rfc" [ngClass]="{ 'is-invalid': submitted && f.controls.rfc.errors   }" minlength="13" class="form-control" placeholder="RFC*" value="" required required/>
+                                        <div *ngIf="submitted && f.controls.rfc.errors " class="invalid-feedback">
+                                            <div *ngIf="f.controls.rfc.errors.required">RFC is required</div>
+                                            <div *ngIf="f.controls.rfc.errors.minlength">The Minimum length is 13</div>
+                                            <div *ngIf="f.controls.rfc.errors.maxlength">The Maximum length is 13</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Technician Incharge">Served by:</label>
+                                        <input type="text" readonly minlength="10" maxlength="10" name="technician_incharge" class="form-control"  value="{{username |titlecase}}"/>
+                                    </div>
+                                    <input type="submit" class="btnRegister"  value="Submit"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <h3  class="register-heading">Apply as a Hirer</h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                        <option>What is your Birthdate?</option>
+                                        <option>What is Your old Phone Number</option>
+                                        <option>What is your Pet Name?</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                </div>
+                                <input type="submit" class="btnRegister"  value="Register"/>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+        </div>
+
+    </div>
+<!-- </div> -->
+<!-- <app-footbar></app-footbar> -->

@@ -3,6 +3,10 @@ import { VehicleService } from './../../../services/vehicle/vehicle.service';
 import { ClientService } from 'src/app/services/client/client.service';
 import { Component, OnInit } from '@angular/core';
 import {  IDropdownSettings } from 'ng-multiselect-dropdown';
+import { TechnicianService } from 'src/app/services/authguards/roles/technician.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-vehicle-form',
   templateUrl: './vehicle-form.component.html',
@@ -19,13 +23,21 @@ export class VehicleFormComponent implements OnInit {
   dropdownSettings = {};
   allclients:any[] =[]
   allsolicitedservices:any[]=[]
+  username: any;
+  submitted: boolean;
   constructor(
     private clientservice:ClientService,
     private vehicleservice:VehicleService,
-    private solicitedservices:SolicitedServiceService
+    private solicitedservices:SolicitedServiceService,
+    private technicianservice:TechnicianService,
+    private toastr:ToastrService,
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(){
+    window.scrollTo(0, 0)
+    this.username = this.technicianservice.decod()['username']
     this.solicitedservices.getfilteredSolicitedServices().subscribe((x:any)=>{
        console.log(x)
        
@@ -79,13 +91,26 @@ onSelectAll(items: any) {
 }
 
   vehicleSubmit(value){
-    value['client_id']=value.client[0].id
+    if(value.value.client){
+      value['client_id']=value.value.client[0].id
+    }
+  
     delete value['client'];
     console.log(value);
-    this.vehicleservice.vehicleCreate(value).subscribe(data=>{
+    this.submitted = true;
+    if(value.valid){
+      this.spinner.show();
+    this.vehicleservice.vehicleCreate(value.value).subscribe(data=>{
       console.log(data);
-      
-    })
+      this.spinner.hide();
+      this.toastr.success('Data was uploaded successfully!')
+      this.router.navigate(['home'])
 
+      
+    },err=>{
+      this.spinner.hide();
+      this.toastr.error('Error!Kindly confirm all the information is  filled correctly')
+    })
+  }
   }
 }

@@ -1,156 +1,187 @@
-<div class="container register">
-    <div class="row">
-        <div class="col-md-3 register-left d-none d-md-block">
-            <div class="sss">
-            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-            <!-- <h3>Welcome</h3> -->
-            <h3>Technician Form</h3>
-            <p>Kindly fill in all the Vehicle Data </p>
-            <!-- <input type="submit" name="" value="Login"/><br/> -->
-            </div>
-        </div>
-        <div class="col-md-9 register-right">
-           
-            <h3 class="d-block d-none d-sm-block d-md-none" style="text-align:center;">Technician Form</h3>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    
-                    <h3 class="register-heading">Vehicle Data</h3>
-                    <form #f="ngForm" (ngSubmit)="vehicleSubmit(f.value)" >
-                            
-                    
-                        <div class="row register-form">
-                            <span id="emailHelp" class="form-text text-muted">*Please only use capital letters and no punctuation marks. </span>
-                            
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="client">Client</label>
-                                    <ng-multiselect-dropdown
-                                    [placeholder]="'custom placeholder'"
-                                    [settings]="dropdownSettings"
-                                    [data]="allclients"
-                                    #user
-                                    (ngModel)="client"
-                                    name="client"
-                                    (onSelect)="onItemSelect($event)"
-                                    (onSelectAll)="onSelectAll($event)"
-                                  >
-                                  </ng-multiselect-dropdown>
-                                </div>
-                                <div class="form-group">
-                                    <label for="vehicleplate">Vehicle Plate</label>
-                                    <input type="text" #vehicle_plate (ngModel)="vehicle_plate" name="vehicle_plate" class="form-control" placeholder="Vehicle Plate *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="vehiclebrand">Vehicle Brand</label>
-                                    <input type="text" #vehicle_brand (ngModel)="vehicle_brand" name="vehicle_brand" class="form-control" placeholder="Vehicle Brand *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="vehiclemodel">Vehicle Model</label>
-                                    <input type="text" #vehicle_model (ngModel)="vehicle_model" name="vehicle_model"  class="form-control" placeholder="Vehicle Model *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="vehicleyear">Vehicle Year</label>
-                                    <input type="text" #vehicle_year (ngModel)="vehicle_year" name="vehicle_year" class="form-control" placeholder="Vehicle Year *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="vehiclecolor">Vehicle Color </label>
-                                    <input type="color" #vehicle_color (ngModel)="vehicle_color" name="vehicle_color" class="form-control" placeholder="Vehicle Color *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="vehicle_observation">Vehicle Observation </label>
-                                    <input type="number" #vehicle_observation (ngModel)="vehicle_observation" name="vehicle_observation" class="form-control" placeholder="Vehicle Observation *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="specificationsservice">Service Specifications</label>
-                                    <input type="text" #service_specification (ngModel)="service_specification"  name="service_specification" class="form-control" placeholder="Service Specifications *" value="" />
-                                </div>
-                                
-                                <!-- <div class="form-group">
-                                    <div class="maxl">
-                                        <label class="radio inline"> 
-                                            <input type="radio" name="gender" value="male" checked>
-                                            <span> Male </span> 
-                                        </label>
-                                        <label class="radio inline"> 
-                                            <input type="radio" name="gender" value="female">
-                                            <span>Female </span> 
-                                        </label>
-                                    </div>
-                                </div> -->
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="vehicleentrydate">Vehicle Entry Date</label>
-                                    <input type="datetime-local" #vehicle_entry_date (ngModel)="vehicle_entry_date" name="vehicle_entry_date" [min]="mindate" class="form-control" placeholder="Vehicle Entry Date*" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="liters_of_gasoline">Liters of Gasoline</label>
-                                    <input type="number" #liters_of_gasoline (ngModel)="liters_of_gasoline" name="liters_of_gasoline" class="form-control" placeholder="Liters of Gasoline *" value="" />
-                                </div>
-                            
-                                <div class="form-group">
-                                    <label for="solicitedservice">Solicited service</label>
-                                    <!-- <div class="maxl">
-                                        
-                                        <label class="radio inline"> 
-                                            <input type="radio" #solicitedservice (ngModel)="solicitedservice" name="solicitedservice" value="Chassis" checked>
-                                            <span> Chassis </span> 
-                                        </label><br>
-                                        <label class="radio inline"> 
-                                            <input type="radio" #solicitedservice (ngModel)="solicitedservice" name="solicitedservice" value="generalservice">
-                                            <span>General service</span> 
-                                        </label><br>
-                                        <label class="radio inline"> 
-                                            <input type="radio" #solicitedservice (ngModel)="solicitedservice" name="solicitedservice" value="tuning">
-                                            <span>Tuning</span> 
-                                        </label><br>
-                                        <label class="radio inline"> 
-                                            <input type="radio" #solicitedservice (ngModel)="solicitedservice" name="solicitedservice" value="carbalancing">
-                                            <span>Car Balancing</span> 
-                                        </label><br>
-                                        <label class="radio inline"> 
-                                            <input type="radio" #solicitedservice (ngModel)="solicitedservice"  name="solicitedservice" value="oilchanges">
-                                            <span>Oil Changes</span> 
-                                        </label><br>
-                                        <label class="radio inline"> 
-                                            <input type="radio"  value="brakes">
-                                            <span>Brakes</span> 
-                                        </label>
-                                        
-                                        
-                                        
-                                    </div> -->
-                                    <select #solicited_service (ngModel)="solicited_service" name="solicited_service" class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option *ngFor="let service of allsolicitedservices" value="{{service.id}}">{{service.name}}</option>
-                                        <!-- <option value="service.id">Tuning</option>
-                                        <option value="carbalancing">Car Balancing</option>
-                                        <option value="oilchanges">oilchanges</option> -->
-                                      </select>
-                                </div>
-                               
-                            
-                                <div class="form-group">
-                                    <label for="proposedvehicledeparturedate">Proposed Vehicle Departure Date</label>
-                                    <input type="datetime-local" #proposed_departure_date (ngModel)="proposed_departure_date" [min]="mindate" name="proposed_departure_date" class="form-control" placeholder="Proposed Vehicle Departure Date " value="" />
-                                </div>
 
-                               
-                                <div class="form-group">
-                                    <label for="technicianincharge">Technician Incharge</label>
-                                    <input type="text"  value="Alihusa" readonly  class="form-control">  
-                                    
-                                </div>
-
-                                <input type="submit" class="btnRegister"  value="Submit"/>
-                            </div>
-                        </div>
-                    </form>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+<div class="card2 card border-0 px-4 py-5">
+<app-top-navbar></app-top-navbar>
+<app-mainside-navbar></app-mainside-navbar>
+ <div class="content-wrapper">
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left d-none d-md-block">
+                <div class="sss">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                <!-- <h3>Welcome</h3> -->
+                <h3>Technician Form</h3>
+                <p>Kindly fill in all the Vehicle Data </p>
+                <!-- <input type="submit" name="" value="Login"/><br/> -->
                 </div>
+            </div>
+            <div class="col-md-9 register-right">
                
+                <h3 class="d-block d-none d-sm-block d-md-none" style="text-align:center;">Technician Form</h3>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        
+                        <h3 class="register-heading">Vehicle Data</h3>
+                        <form #f="ngForm" (ngSubmit)="vehicleSubmit(f)" >
+                                
+                        
+                            <div class="row register-form">
+                                <span id="emailHelp" class="form-text text-muted">*Please only use capital letters and no punctuation marks. </span>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="client">Client</label>
+                                        <ng-multiselect-dropdown
+                                        [placeholder]="'Select the client'"
+                                        [settings]="dropdownSettings"
+                                        [data]="allclients"
+                                        #user
+                                        (ngModel)="client"
+                                        name="client"
+                                        (onSelect)="onItemSelect($event)"
+                                        (onSelectAll)="onSelectAll($event)"
+                                        required
+                                        [ngClass]="{ 'is-invalid': submitted && f.controls.client.errors }"
+                                      >
+                                      </ng-multiselect-dropdown>
+                                      <div *ngIf="submitted && f.controls.client.errors" class="invalid-feedback">
+                                        <div *ngIf="f.controls.client.errors.required">client is required</div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vehicleplate">Vehicle Plate</label>
+                                        <input type="text" #vehicle_plate (ngModel)="vehicle_plate" name="vehicle_plate"[ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_plate.errors }" class="form-control" placeholder="Vehicle Plate *" value=""  required/>
+                                        <div *ngIf="submitted && f.controls.vehicle_plate.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.vehicle_plate.errors.required">Vehicle Plate is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vehiclebrand">Vehicle Brand</label>
+                                        <input type="text" #vehicle_brand (ngModel)="vehicle_brand" name="vehicle_brand"[ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_brand.errors }" class="form-control" placeholder="Vehicle Brand *" value="" required/>
+                                        <div *ngIf="submitted && f.controls.vehicle_brand.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.vehicle_brand.errors.required">Vehicle Brand is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vehiclemodel">Vehicle Model</label>
+                                        <input type="text" #vehicle_model (ngModel)="vehicle_model" name="vehicle_model" [ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_model.errors }" class="form-control" placeholder="Vehicle Model *" value=""required />
+                                        <div *ngIf="submitted && f.controls.vehicle_model.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.vehicle_model.errors.required">Vehicle Model is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vehicleyear">Vehicle Year</label>
+                                        <input type="text" #vehicle_year (ngModel)="vehicle_year" name="vehicle_year" [ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_year.errors }"class="form-control" placeholder="Vehicle Year *" value=""required />
+                                        <div *ngIf="submitted && f.controls.vehicle_year.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.vehicle_year.errors.required">Vehicle Year is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vehiclecolor">Vehicle Color </label>
+                                        <input type="color" #vehicle_color (ngModel)="vehicle_color" name="vehicle_color"[ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_color.errors }" class="form-control" placeholder="Vehicle Color *" value=""required />
+                                        <div *ngIf="submitted && f.controls.vehicle_color.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.vehicle_color.errors.required">Vehicle Color is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="vehicle_observation">Vehicle Observation </label>
+                                        <input type="number" #vehicle_observation (ngModel)="vehicle_observation" name="vehicle_observation" [ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_observation.errors }"class="form-control" placeholder="Vehicle Observation *" value="" required />
+                                        <div *ngIf="submitted && f.controls.vehicle_observation.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.vehicle_observation.errors.required">Vehicle Observation is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="specificationsservice">Service Specifications</label>
+                                        <input type="text" #service_specification (ngModel)="service_specification"  name="service_specification" [ngClass]="{ 'is-invalid': submitted && f.controls.service_specification.errors }"class="form-control" placeholder="Service Specifications *" value="" required/>
+                                        <div *ngIf="submitted && f.controls.service_specification.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.service_specification.errors.required">Service Specifications is required</div>
+                                        </div>
+                                    </div>
+                                    
+                                   </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="vehicleentrydate">Vehicle Entry Date</label>
+                                        <input type="datetime-local" #vehicle_entry_date (ngModel)="vehicle_entry_date" name="vehicle_entry_date"[ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_entry_date.errors }" [min]="mindate" class="form-control" placeholder="Vehicle Entry Date*" value="" required />
+                                        <div *ngIf="submitted && f.controls.vehicle_entry_date.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.vehicle_entry_date.errors.required">Vehicle Entry Date is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="liters_of_gasoline">Liters of Gasoline</label>
+                                        <input type="number" #liters_of_gasoline (ngModel)="liters_of_gasoline" name="liters_of_gasoline"[ngClass]="{ 'is-invalid': submitted && f.controls.liters_of_gasoline.errors }" class="form-control" placeholder="Liters of Gasoline *" value="" required />
+                                        <div *ngIf="submitted && f.controls.liters_of_gasoline.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.liters_of_gasoline.errors.required">Liters of Gasoline is required</div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <label for="solicitedservice">Solicited service</label>
+                                        <!-- <div class="maxl">
+                                            
+                                            <label class="radio inline"> 
+                                                <input type="radio" #solicitedservice (ngModel)="solicitedservice" name="solicitedservice" value="Chassis" checked>
+                                                <span> Chassis </span> 
+                                            </label><br>
+                                            <label class="radio inline"> 
+                                                <input type="radio" #solicitedservice (ngModel)="solicitedservice" name="solicitedservice" value="generalservice">
+                                                <span>General service</span> 
+                                            </label><br>
+                                            <label class="radio inline"> 
+                                                <input type="radio" #solicitedservice (ngModel)="solicitedservice" name="solicitedservice" value="tuning">
+                                                <span>Tuning</span> 
+                                            </label><br>
+                                            <label class="radio inline"> 
+                                                <input type="radio" #solicitedservice (ngModel)="solicitedservice" name="solicitedservice" value="carbalancing">
+                                                <span>Car Balancing</span> 
+                                            </label><br>
+                                            <label class="radio inline"> 
+                                                <input type="radio" #solicitedservice (ngModel)="solicitedservice"  name="solicitedservice" value="oilchanges">
+                                                <span>Oil Changes</span> 
+                                            </label><br>
+                                            <label class="radio inline"> 
+                                                <input type="radio"  value="brakes">
+                                                <span>Brakes</span> 
+                                            </label>
+                                            
+                                            
+                                            
+                                        </div> -->
+                                        <select #solicited_service (ngModel)="solicited_service" name="solicited_service"[ngClass]="{ 'is-invalid': submitted && f.controls.solicited_service.errors }" class="form-select" aria-label="Default select example" required>
+                                            <option selected>Open this select menu</option>
+                                            <option *ngFor="let service of allsolicitedservices" value="{{service.id}}">{{service.name}}</option>
+                                          </select>
+                                          <div *ngIf="submitted && f.controls.solicited_service.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.solicited_service.errors.required">Solicited service is required</div>
+                                        </div>
+                                    </div>
+                                   
+                                
+                                    <div class="form-group">
+                                        <label for="proposedvehicledeparturedate">Proposed Vehicle Departure Date</label>
+                                        <input type="datetime-local" #proposed_departure_date (ngModel)="proposed_departure_date" [min]="mindate" name="proposed_departure_date"[ngClass]="{ 'is-invalid': submitted && f.controls.proposed_departure_date.errors }" class="form-control" placeholder="Proposed Vehicle Departure Date " value="" required />
+                                        <div *ngIf="submitted && f.controls.proposed_departure_date.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.proposed_departure_date.errors.required">Proposed Vehicle Departure Date is required</div>
+                                        </div>
+                                    </div>
+    
+                                   
+                                    <div class="form-group">
+                                        <label for="technicianincharge">Served by</label>
+                                        <input type="text"  value="{{username}}" readonly  class="form-control">  
+                                        
+                                    </div>
+    
+                                    <input type="submit" class="btnRegister"  value="Submit"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                   
+                </div>
             </div>
         </div>
-    </div>
-
+    
+    </div>  
 </div>
+<app-footbar></app-footbar>

@@ -1,0 +1,74 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+<div class="card2 card border-0 px-4 py-5">
+<app-top-navbar></app-top-navbar>
+<app-mainside-navbar></app-mainside-navbar>
+ <div class="content-wrapper">
+    <!-- <div class="card2 card border-0 px-4 py-5"> -->
+        <div class="registration-form">
+         <form #f="ngForm"(ngSubmit)="createUser(f)" >
+             <!-- <div class="form-icon"> -->
+                <h2 style="font-family: 'Times New Roman', Times, serif;text-align:center;"> <u>Register new user</u> </h2>
+             <!-- </div> -->
+             <div class="form-group">
+                 <label for="Email">Email:</label>
+                 <input type="email" #email (ngModel)="email" name="email" [ngClass]="{ 'is-invalid': submitted && f.controls.email.errors }" class="form-control item" id="email" placeholder="email..." required>
+                 <div *ngIf="submitted && f.controls.email.errors" class="invalid-feedback">
+                     <div *ngIf="f.controls.email.errors">Name is required</div>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label for="Username">Username:</label>
+                 <input type="text" #username (ngModel)="username" name="username"[ngClass]="{ 'is-invalid': submitted && f.controls.username.errors }" class="form-control item" id="username" placeholder="username..." required>
+                 <div *ngIf="submitted && f.controls.username.errors" class="invalid-feedback">
+                     <div *ngIf="f.controls.username.errors">username is required</div>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label for="Password">Password:</label>
+                 <input type="password" #password (ngModel)="password" name="password" [ngClass]="{ 'is-invalid': submitted && f.controls.password.errors }" class="form-control item" id="password" placeholder="password..."required>
+                 <div *ngIf="submitted && f.controls.password" class="invalid-feedback">
+                     <div *ngIf="f.controls.password.errors">password is required</div>
+                     
+                 </div>
+                 <div *ngIf="(f.controls.password)" class="invalid-feedback">
+                     <div *ngIf="f.controls.password.value != f.controls.confirmPassword.value&& f.controls.password.touched ">passwords don't match</div>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label for="ConfirmPassword">Confirm Password:</label>
+                 <input type="password" #confirmPassword (ngModel)="confirmPassword" name="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.controls.confirmPassword.errors   }" class="form-control item" id="confirmpassword" placeholder="confirm password..." required>
+                 <div *ngIf="submitted && f.controls.confirmPassword.errors " class="invalid-feedback">
+                     <div *ngIf="f.controls.confirmPassword.errors">password is required</div>
+                 </div>
+                 <div *ngIf="(f.controls.confirmPassword)" class="invalid-feedback">
+                     <!-- cdiucfdncjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjk -->
+                     <div *ngIf="f.controls.password.value != f.controls.confirmPassword.value&& f.controls.password.touched ">passwords don't match</div>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label for="phonenumber">Phone Number:</label>
+                 <input type="tel" #phonenumber (ngModel)="phonenumber" name="phonenumber" [ngClass]="{ 'is-invalid': submitted && f.controls.phonenumber.errors }" class="form-control item" id="phonenumber" placeholder="phone number..."required>
+                 <div *ngIf="submitted && f.controls.phonenumber.errors" class="invalid-feedback">
+                     <div *ngIf="f.controls.phonenumber.errors">phonenumber is required</div>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label for="vehicleentrydate">User role:</label>
+                 <select  #role (ngModel)="role" name="role" class="form-select" aria-label="Default select example" [ngClass]="{ 'is-invalid': submitted && f.controls.role.errors }" required>
+                     <option name="role" selected>Select the user role</option>
+                     <option  value="{{role.id}}" *ngFor="let role of allroles">{{role.name}}</option>
+                    
+                   </select>
+                   <div *ngIf="submitted && f.controls.role.errors" class="invalid-feedback">
+                     <div *ngIf="f.controls.role.errors">role is required</div>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <button type="submit" class="btn btn-block create-account">Create Account</button>
+             </div>
+         </form>
+         
+     <!-- </div> -->
+ 
+</div>
+<app-footbar></app-footbar>

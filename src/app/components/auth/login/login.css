@@ -12,9 +12,16 @@ body {
 }
 
 .card2 {
-    margin: 0px 40px
+    margin: 0px auto;
+    display: inline-block;
+    width: 50%;
+    margin-left : 25%;
+    /* padding: 3px; */
 }
-
+.card2 h2{
+    text-align:center;
+    font-family: 'Times New Roman', Times, serif;
+}
 .logo {
     width: 200px;
     height: 100px;
@@ -163,7 +170,13 @@ a {
     }
 
     .card2 {
-        border-top: 1px solid #EEEEEE !important;
-        margin: 0px 15px
+        /* margin: 0px auto; */
+        display: inline-block;
+        width: 100%;
+        margin-left : 0;
+        /* padding: 3px; */
+    }
+    .wrapper{
+
     }
 }

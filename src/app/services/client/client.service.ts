@@ -11,7 +11,7 @@ export class ClientService {
   constructor(private http:HttpClient) { }
 
   clientCreate(data){
-    return this.http.post(`${this.baseUrl}/api/client/client/`,{data},{headers: this.headers,})
+    return this.http.post(`${this.baseUrl}/api/client/client-ap/`,{data},{headers: this.headers,})
   }
   getAllClients(){
     return this.http.get(`${this.baseUrl}/api/client/client-ap/`,{headers: this.headers,})

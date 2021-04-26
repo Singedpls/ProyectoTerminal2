@@ -55,7 +55,7 @@ export class TechnicianDataComponent  {
        console.log(result)
        for (let i = 0;i<result.length;i++){
         let name=result[i].solicited_service_name
-         if (this.categories.indexOf(name)!=1){
+         if (this.categories.indexOf(name)==-1){
           this.categories.push( result[i].solicited_service_name)
           
          }

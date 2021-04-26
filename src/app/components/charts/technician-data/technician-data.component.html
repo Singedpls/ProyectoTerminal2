@@ -1,2 +1,7 @@
+<app-top-navbar></app-top-navbar>
+<app-mainside-navbar></app-mainside-navbar>
+ <div class="content-wrapper">
 <highcharts-chart *ngIf="chartOptions" [Highcharts] = "highcharts"  [options] = "chartOptions">
-</highcharts-chart>
+</highcharts-chart>     
+</div>
+<app-footbar></app-footbar>

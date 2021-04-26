@@ -1,17 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { SuperadminService } from './../../services/authguards/roles/superadmin.service';
+import { TechnicianService } from './../../services/authguards/roles/technician.service';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,AfterViewInit {
   title = 'my-adminlte3-demo-app';
   dateToday = Date.now();
   rainMeter = '5';
-  constructor() { }
+  technicianview:boolean =false;
+  superadminview:boolean =false;
+  constructor(
+    private technicianservice:TechnicianService,
+    private superadminservice:SuperadminService
+  ) { }
+  ngAfterViewInit(): void {
+    let rid = this.technicianservice.decod()['rrid']
+   this.technicianview=(rid== 1 || rid== 2)?true : false;
+   this.superadminview = (rid== 1 )?true : false;
+   console.log(this.technicianview);
+   console.log(this.superadminview);
+  }
 
   ngOnInit(): void {
+  
+  
+   
+   
+ 
   }
 
 }

@@ -2,10 +2,11 @@ import { Observable } from 'rxjs';
 import { ClientChartService } from './../../../services/charts/client-chart/client-chart.service';
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-client-chart-data',
   templateUrl: './client-chart-data.component.html',
-  styleUrls: ['./client-chart-data.component.sass']
+  styleUrls: ['./client-chart-data.component.sass','./clientchart.css']
 })
 export class ClientChartDataComponent implements OnInit   {
   
@@ -14,13 +15,19 @@ export class ClientChartDataComponent implements OnInit   {
   // chartOptions: Highcharts.Options = {}
   chardata: any[] = [];
   chartOptions: any;
+  allclients:any[]=[]
   constructor(
-    private clientchartservice:ClientChartService
+    private clientchartservice:ClientChartService,
+    private spinner: NgxSpinnerService
+    
     ){}
 
     ngOnInit(){
-      this.clientchartservice.getfiltereddata().subscribe(clients => {
-
+      window.scrollTo(0, 0)
+      this.spinner.show();
+      this.clientchartservice.getfiltereddata().subscribe((clients:any) => {
+        this.spinner.hide();
+        this.allclients =clients;
         console.log(clients)
         var data= [
           ['Monday', 0],
@@ -116,6 +123,9 @@ export class ClientChartDataComponent implements OnInit   {
          
         
       }
-    })}
+    },error=>{
+      this.spinner.hide();
+    })
+  }
 
 }
