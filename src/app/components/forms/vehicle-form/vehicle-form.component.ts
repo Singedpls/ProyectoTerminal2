@@ -24,7 +24,7 @@ export class VehicleFormComponent implements OnInit {
   allclients:any[] =[]
   allsolicitedservices:any[]=[]
   username: any;
-  submitted: boolean;
+  submitted: boolean = false;
   constructor(
     private clientservice:ClientService,
     private vehicleservice:VehicleService,
@@ -38,10 +38,10 @@ export class VehicleFormComponent implements OnInit {
   ngOnInit(){
     window.scrollTo(0, 0)
     this.username = this.technicianservice.decod()['username']
-    this.solicitedservices.getfilteredSolicitedServices().subscribe((x:any)=>{
-       console.log(x)
+    // this.solicitedservices.getfilteredSolicitedServices().subscribe((x:any)=>{
+    //    console.log(x)
        
-    });
+    // });
     this.solicitedservices.getSolicitedServices().subscribe((x:any)=>{
       this.allsolicitedservices = x
     });
@@ -92,7 +92,7 @@ onSelectAll(items: any) {
 
   vehicleSubmit(value){
     if(value.value.client){
-      value['client_id']=value.value.client[0].id
+      value.value['client_id']=value.value.client[0].id
     }
   
     delete value['client'];

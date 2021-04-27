@@ -1,0 +1,100 @@
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+
+
+ <!-- <div class="content-wrapper"> -->
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left d-none d-md-block">
+                <div class="sss">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                <!-- <h3>Welcome</h3> -->
+                <h3>Vehicle Departure <br> Form</h3>
+                <p>Kindly fill in all the Vehicle Data </p>
+                <!-- <input type="submit" name="" value="Login"/><br/> -->
+                </div>
+            </div>
+            <div class="col-md-9 register-right">
+               
+                <h3 class="d-block d-none d-sm-block d-md-none" style="text-align:center;">Technician Form</h3>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        
+                        <h3 class="register-heading">Vehicle Data</h3>
+                        
+                        <form #f="ngForm" (ngSubmit)="vehicleSubmit(f)" >
+                                
+                        
+                            <div class="row register-form">
+                                <span id="emailHelp" class="form-text text-muted">*Please only use capital letters and no punctuation marks. </span>
+                                
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="client">Vehicle</label>
+                                        <ng-multiselect-dropdown
+                                        [placeholder]="'Select the client'"
+                                        [settings]="dropdownSettings"
+                                        [data]="pendingvehicles"
+                                        #vehicle
+                                        (ngModel)="vehicle"
+                                        name="vehicle"
+                                       
+                                        required
+                                        [ngClass]="{ 'is-invalid': submitted && f.controls.vehicle.errors }"
+                                      >
+                                      </ng-multiselect-dropdown>
+                                        <div *ngIf="submitted && f.controls.vehicle.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.vehicle.errors.required">Vehicle is required</div>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="form-group">
+                                        <label for="liters_of_gasoline">Liters of Gasoline</label>
+                                        <input type="number" #liters_of_gasoline_on_departure (ngModel)="liters_of_gasoline_on_departure" name="liters_of_gasoline_on_departure"[ngClass]="{ 'is-invalid': submitted && f.controls.liters_of_gasoline_on_departure.errors }" class="form-control" placeholder="Liters of Gasoline *" value="" required />
+                                        <div *ngIf="submitted && f.controls.liters_of_gasoline_on_departure.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.liters_of_gasoline_on_departure.errors.required">Liters of Gasoline is required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="serviceperformed">Service Performed</label>
+                                        <select #actual_service_performed (ngModel)="actual_service_performed" name="actual_service_performed"[ngClass]="{ 'is-invalid': submitted && f.controls.actual_service_performed.errors }" class="form-select" aria-label="Default select example" required>
+                                            <option selected>Open this select menu</option>
+                                            <option *ngFor="let service of allsolicitedservices" value="{{service.id}}">{{service.name}}</option>
+                                          </select>
+                                          <div *ngIf="submitted && f.controls.actual_service_performed.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.actual_service_performed.errors.required">Service is required</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="vehicleobservations">Vehicle Observations</label>
+                                        <textarea #vehicle_observation_on_departure (ngModel)="vehicle_observation_on_departure" name="vehicle_observation_on_departure"[ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_observation_on_departure.errors }" class="form-control" placeholder="vehicle observations... *" value=""  required cols="30" rows="4"></textarea>
+                                   
+                                        <div *ngIf="submitted && f.controls.vehicle_observation_on_departure.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.vehicle_observation_on_departure.errors.required">Vehicle Observations is required</div>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="form-group">
+                                        <label for="technicianincharge">Served by</label>
+                                        <input type="text"  value="{{username}}" readonly  class="form-control">  
+                                        
+                                    </div>
+    
+                                    <input type="submit" class="btnRegister"  value="Submit"/>
+                                   </div>
+                          
+                            </div>
+                        </form>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    
+    </div>  
+<!-- </div>   -->
+
+

@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
         console.log(user)
         this.spinner.hide();
         this.toastr.success('User Created  Successfuly!')
-        this.router.navigate[('home')]
+        this.router.navigate(['home'])
 
       },error=>{
         this.toastr.error('Error!,Kindly confirm all the information is  filled correctly')

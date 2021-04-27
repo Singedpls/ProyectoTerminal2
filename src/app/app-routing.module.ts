@@ -1,3 +1,4 @@
+import { VehicledepartureComponent } from './component/forms/departure/vehicledeparture/vehicledeparture.component';
 import { DashboardComponent } from './components/home/dashboard/dashboard.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { TechnicianService } from './services/authguards/roles/technician.service';
@@ -34,6 +35,9 @@ const routes: Routes = [
   {path: 'chart',component:ChartsComponent,},
   {path: 'technician-chart',component:TechnicianDataComponent,canActivate:[TechnicianService]},
   {path: 'client-chart',component:ClientChartDataComponent,canActivate:[SuperadminService]},
+
+  // DEPARTURE
+  {path:'vehicle-departure-form',component:VehicledepartureComponent}
 ];
 
 @NgModule({

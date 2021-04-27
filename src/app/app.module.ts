@@ -27,6 +27,7 @@ import { FootbarComponent } from './components/shared/footbar/footbar.component'
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { VehicledepartureComponent } from './component/forms/departure/vehicledeparture/vehicledeparture.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
     SharedComponent,
     TopNavbarComponent,
     MainsideNavbarComponent,
-    FootbarComponent
+    FootbarComponent,
+    VehicledepartureComponent,
+ 
   ],
   imports: [
     CommonModule,

@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="vehicle_observation">Vehicle Observation </label>
-                                        <input type="number" #vehicle_observation (ngModel)="vehicle_observation" name="vehicle_observation" [ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_observation.errors }"class="form-control" placeholder="Vehicle Observation *" value="" required />
+                                        <input type="text" #vehicle_observation (ngModel)="vehicle_observation" name="vehicle_observation" [ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_observation.errors }"class="form-control" placeholder="Vehicle Observation *" value="" required />
                                         <div *ngIf="submitted && f.controls.vehicle_observation.errors" class="invalid-feedback">
                                             <div *ngIf="f.controls.vehicle_observation.errors.required">Vehicle Observation is required</div>
                                         </div>
@@ -109,9 +109,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="liters_of_gasoline">Liters of Gasoline</label>
-                                        <input type="number" #liters_of_gasoline (ngModel)="liters_of_gasoline" name="liters_of_gasoline"[ngClass]="{ 'is-invalid': submitted && f.controls.liters_of_gasoline.errors }" class="form-control" placeholder="Liters of Gasoline *" value="" required />
-                                        <div *ngIf="submitted && f.controls.liters_of_gasoline.errors" class="invalid-feedback">
-                                            <div *ngIf="f.controls.liters_of_gasoline.errors.required">Liters of Gasoline is required</div>
+                                        <input type="number" #liters_of_gasoline_on_arrival (ngModel)="liters_of_gasoline_on_arrival" name="liters_of_gasoline_on_arrival"[ngClass]="{ 'is-invalid': submitted && f.controls.liters_of_gasoline_on_arrival.errors }" class="form-control" placeholder="Liters of Gasoline *" value="" required />
+                                        <div *ngIf="submitted && f.controls.liters_of_gasoline_on_arrival.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.liters_of_gasoline_on_arrival.errors.required">Liters of Gasoline is required</div>
                                         </div>
                                     </div>
                                 
