@@ -22,10 +22,11 @@ export class ClientFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0)
     this.username = (this.technicianservice.decod())['username']
   }
   clientSubmit(value){
-    window.scrollTo(0, 0)
+    
     this.submitted =true;
     console.log(value);
     if(value.valid){

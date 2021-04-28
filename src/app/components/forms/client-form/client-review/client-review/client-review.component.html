@@ -1,0 +1,123 @@
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+
+
+<!-- <div class="content-wrapper"> -->
+   <div class="container register">
+       <div class="row">
+           <div class="col-md-3 register-left d-none d-md-block">
+               <div class="sss">
+               <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+               <!-- <h3>Welcome</h3> -->
+               <h3>Review<br> Form</h3>
+               <p>Kindly fill in the form </p>
+               <!-- <input type="submit" name="" value="Login"/><br/> -->
+               </div>
+           </div>
+           <div class="col-md-9 register-right">
+              
+               <h3 class="d-block d-none d-sm-block d-md-none" style="text-align:center;">Technician Form</h3>
+               <div class="tab-content" id="myTabContent">
+                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                       
+                       <h3 class="register-heading">Review Us!</h3>
+                       
+                       <form #f="ngForm" (ngSubmit)="reviewsubmit(f)" >
+                               
+                       
+                           <div class="row register-form">
+                               <span id="emailHelp" class="form-text text-muted">*Please only use capital letters and no punctuation marks. </span>
+                               
+                               <div class="col-md-12">
+                                   <div class="form-group">
+                                       <label for="client">Kindly Select the Technician</label>
+                                       <ng-multiselect-dropdown
+                                       [placeholder]="'Select the client'"
+                                       [settings]="dropdownSettings"
+                                       [data]="alltechnicians"
+                                       #technician_incharge
+                                       (ngModel)="technician_incharge"
+                                       name="technician_incharge"
+                                      
+                                       required
+                                       [ngClass]="{ 'is-invalid': submitted && f.controls.technician_incharge.errors }"
+                                     >
+                                     </ng-multiselect-dropdown>
+                                       <div *ngIf="submitted && f.controls.technician_incharge.errors" class="invalid-feedback">
+                                           <div *ngIf="f.controls.technician_incharge.errors.required">Technician is required</div>
+                                       </div>
+                                   </div>
+                                  
+                                   <div class="form-group">
+                                       <label for="liters_of_gasoline">How do you rate the technician's attention?</label>
+                                       <input type="number" #technicians_attention (ngModel)="technicians_attention" name="technicians_attention"[ngClass]="{ 'is-invalid': submitted && f.controls.technicians_attention.errors }" class="form-control" placeholder="enter a number between 0 -10*"minlength="0" maxlength="10" value="" required />
+                                       <div *ngIf="submitted && f.controls.technicians_attention.errors" class="invalid-feedback">
+                                           <div *ngIf="f.controls.technicians_attention.errors.required">Kindly fill in the rating is required</div>
+                                           <div *ngIf="f.controls.technicians_attention.errors.maxlength">The maximum rating is 10!</div>
+                                           <div *ngIf="f.controls.technicians_attention.errors.minlength">The minimum rating is 1!</div>
+                                        </div>
+                                   </div>
+
+                                   <div class="form-group">                                                                                                                                                                                               
+                                    <label for="liters_of_gasoline">From 1-10,how satisfied are you with the service to your car?</label>
+                                    <input type="number" #level_of_satisfaction (ngModel)="level_of_satisfaction" name="level_of_satisfaction"[ngClass]="{ 'is-invalid': submitted && f.controls.level_of_satisfaction.errors }" class="form-control" placeholder="enter a number between 0 -10*" min="1" max="10" value="" required />
+                                    <div *ngIf="submitted && f.controls.level_of_satisfaction.errors" class="invalid-feedback">
+                                        <div *ngIf="f.controls.level_of_satisfaction.errors.required">Kindly fill in the rating is required</div>
+                                        <div *ngIf="f.controls.level_of_satisfaction.errors.maxlength">The maximum rating is 10!</div>
+                                        <div *ngIf="f.controls.level_of_satisfaction.errors.minlength">The minimum rating is 1!</div>
+                                     </div>
+                                </div>
+                                    <div class="form-group">
+                                       <label for="serviceperformed">Would you request your services with us again?</label>
+                                       <select #request_services_again (ngModel)="request_services_again" name="request_services_again"[ngClass]="{ 'is-invalid': submitted && f.controls.request_services_again.errors }" class="form-select" aria-label="Default select example" required>
+                                           <option selected>Open this select menu</option>
+                                           <option  value="yes">Yes</option>
+                                           <option  value="no">No</option>
+                                         </select>
+                                         <div *ngIf="submitted && f.controls.request_services_again.errors" class="invalid-feedback">
+                                           <div *ngIf="f.controls.request_services_again.errors.required">Service is required</div>
+                                       </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                    <label for="serviceperformed">Would you recommend our services?</label>
+                                    <select #reccomend_to_others (ngModel)="reccomend_to_others" name="reccomend_to_others"[ngClass]="{ 'is-invalid': submitted && f.controls.reccomend_to_others.errors }" class="form-select" aria-label="Default select example" required>
+                                        <option selected>Open this select menu</option>
+                                        <option  value="yes">Yes</option>
+                                        <option  value="no">No</option>
+                                      </select>
+                                      <div *ngIf="submitted && f.controls.request_services_again.errors" class="invalid-feedback">
+                                        <div *ngIf="f.controls.request_services_again.errors.required">Service is required</div>
+                                    </div>
+                                </div>
+
+                                   <div class="form-group">
+                                       <label for="Comments">Comments</label>
+                                       <textarea #comments (ngModel)="comments" name="comments"[ngClass]="{ 'is-invalid': submitted && f.controls.comments.errors }" class="form-control" placeholder="vehicle observations... *" value=""   cols="30" rows="4"></textarea>
+                                  
+                                       <div *ngIf="submitted && f.controls.comments.errors" class="invalid-feedback">
+                                           <div *ngIf="f.controls.comments.errors.required">Vehicle Observations is required</div>
+                                       </div>
+                                   </div>
+                                  
+                                   <div class="form-group">
+                                       <label for="technicianincharge">Served by</label>
+                                       <input type="text"  value="{{username}}" readonly  class="form-control">  
+                                       
+                                   </div>
+   
+                                   <input type="submit" class="btnRegister"  value="Submit"/>
+                                  </div>
+                         
+                           </div>
+                       </form>
+                   </div>
+                  
+               </div>
+           </div>
+       </div>
+   
+   </div>  
+<!-- </div>   -->
+
+

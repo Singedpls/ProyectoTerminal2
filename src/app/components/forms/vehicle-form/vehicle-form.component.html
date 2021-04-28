@@ -1,9 +1,6 @@
 
 <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
-<div class="card2 card border-0 px-4 py-5">
-<app-top-navbar></app-top-navbar>
-<app-mainside-navbar></app-mainside-navbar>
- <div class="content-wrapper">
+
     <div class="container register">
         <div class="row">
             <div class="col-md-3 register-left d-none d-md-block">
@@ -85,21 +82,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="vehicle_observation">Vehicle Observation </label>
-                                        <input type="text" #vehicle_observation (ngModel)="vehicle_observation" name="vehicle_observation" [ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_observation.errors }"class="form-control" placeholder="Vehicle Observation *" value="" required />
+                                        <textarea #vehicle_observation (ngModel)="vehicle_observation" name="vehicle_observation" [ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_observation.errors }"class="form-control" placeholder="Vehicle Observation *" value="" required id="" cols="30" rows="4"></textarea>
+                                        
                                         <div *ngIf="submitted && f.controls.vehicle_observation.errors" class="invalid-feedback">
                                             <div *ngIf="f.controls.vehicle_observation.errors.required">Vehicle Observation is required</div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="specificationsservice">Service Specifications</label>
-                                        <input type="text" #service_specification (ngModel)="service_specification"  name="service_specification" [ngClass]="{ 'is-invalid': submitted && f.controls.service_specification.errors }"class="form-control" placeholder="Service Specifications *" value="" required/>
-                                        <div *ngIf="submitted && f.controls.service_specification.errors" class="invalid-feedback">
-                                            <div *ngIf="f.controls.service_specification.errors.required">Service Specifications is required</div>
-                                        </div>
-                                    </div>
+                                  
                                     
                                    </div>
                                 <div class="col-md-6">
+                                    
+
                                     <div class="form-group">
                                         <label for="vehicleentrydate">Vehicle Entry Date</label>
                                         <input type="datetime-local" #vehicle_entry_date (ngModel)="vehicle_entry_date" name="vehicle_entry_date"[ngClass]="{ 'is-invalid': submitted && f.controls.vehicle_entry_date.errors }" [min]="mindate" class="form-control" placeholder="Vehicle Entry Date*" value="" required />
@@ -155,7 +149,14 @@
                                             <div *ngIf="f.controls.solicited_service.errors.required">Solicited service is required</div>
                                         </div>
                                     </div>
-                                   
+                                    <div class="form-group">
+                                        <label for="specificationsservice">Service Specifications</label>
+                                        <textarea  #service_specification (ngModel)="service_specification"  name="service_specification" [ngClass]="{ 'is-invalid': submitted && f.controls.service_specification.errors }"class="form-control" placeholder="Service Specifications *" value="" required id="" cols="30" rows="4"></textarea>
+                                        
+                                        <div *ngIf="submitted && f.controls.service_specification.errors" class="invalid-feedback">
+                                            <div *ngIf="f.controls.service_specification.errors.required">Service Specifications is required</div>
+                                        </div>
+                                    </div>
                                 
                                     <div class="form-group">
                                         <label for="proposedvehicledeparturedate">Proposed Vehicle Departure Date</label>
@@ -183,5 +184,3 @@
         </div>
     
     </div>  
-</div>
-<app-footbar></app-footbar>

@@ -1,3 +1,8 @@
+import { PagenotfoundComponent } from './components/shared/pagenotfound/pagenotfound.component';
+import { TechnicianAverageGasolineComponent } from './components/charts/technician-average-gasoline/technician-average-gasoline.component';
+import { ClientReviewComponent } from './components/forms/client-form/client-review/client-review/client-review.component';
+import { TechnicianAverageReviewChartComponent } from './components/charts/technician-average-review-chart/technician-average-review-chart.component';
+import { Techniciandata2comparisonComponent } from './components/charts/techniciandata2comparison/techniciandata2comparison.component';
 import { VehicledepartureComponent } from './component/forms/departure/vehicledeparture/vehicledeparture.component';
 import { DashboardComponent } from './components/home/dashboard/dashboard.component';
 import { ChartsComponent } from './components/charts/charts.component';
@@ -30,14 +35,20 @@ const routes: Routes = [
   // FORMS ROUTES
   {path: 'client-form',component:ClientFormComponent,canActivate:[SuperadminService]},                                    
   {path: 'vehicle-data-form',component:VehicleFormComponent,canActivate:[TechnicianService]},
-
+  {path: 'client-review-form',component:ClientReviewComponent,canActivate:[SuperadminService]}, 
+  // DEPARTURE
+  {path:'vehicle-departure-form',component:VehicledepartureComponent},
   // CHARTS
-  {path: 'chart',component:ChartsComponent,},
+  // {path: 'chart',component:ChartsComponent,},
   {path: 'technician-chart',component:TechnicianDataComponent,canActivate:[TechnicianService]},
   {path: 'client-chart',component:ClientChartDataComponent,canActivate:[SuperadminService]},
+  {path:'technician-delivery-analysis',component:Techniciandata2comparisonComponent},
+  {path:'technician-average-rating-analysis',component:TechnicianAverageReviewChartComponent},
+  {path:'technician-average-gasoline-used',component:TechnicianAverageGasolineComponent},
 
-  // DEPARTURE
-  {path:'vehicle-departure-form',component:VehicledepartureComponent}
+
+  {path:'**',component:PagenotfoundComponent},
+  
 ];
 
 @NgModule({

@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
   rainMeter = '5';
   technicianview:boolean =false;
   superadminview:boolean =false;
+  username: any;
   constructor(
     private technicianservice:TechnicianService,
     private superadminservice:SuperadminService
@@ -27,7 +28,10 @@ export class HomeComponent implements OnInit,AfterViewInit {
 
   ngOnInit(): void {
   
-  
+    this.username = this.technicianservice.decod()['username']
+    let rid = this.technicianservice.decod()['rrid']
+    this.technicianview=(rid== 1 || rid== 2)?true : false;
+    this.superadminview = (rid== 1 )?true : false;
    
    
  

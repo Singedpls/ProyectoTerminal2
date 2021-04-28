@@ -28,6 +28,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { VehicledepartureComponent } from './component/forms/departure/vehicledeparture/vehicledeparture.component';
+import { Techniciandata2comparisonComponent } from './components/charts/techniciandata2comparison/techniciandata2comparison.component';
+import { TechnicianAverageReviewChartComponent } from './components/charts/technician-average-review-chart/technician-average-review-chart.component';
+import { ClientReviewComponent } from './components/forms/client-form/client-review/client-review/client-review.component';
+import { TechnicianAverageGasolineComponent } from './components/charts/technician-average-gasoline/technician-average-gasoline.component';
+import { PagenotfoundComponent } from './components/shared/pagenotfound/pagenotfound.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +51,12 @@ import { VehicledepartureComponent } from './component/forms/departure/vehiclede
     MainsideNavbarComponent,
     FootbarComponent,
     VehicledepartureComponent,
+    Techniciandata2comparisonComponent,
+    TechnicianAverageReviewChartComponent,
+    ClientReviewComponent,
+    TechnicianAverageGasolineComponent,
+    PagenotfoundComponent
+ 
  
   ],
   imports: [
